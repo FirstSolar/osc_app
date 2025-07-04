@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  job-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: job-backend
+    restart: always
+    expose:
+      - "5000"
+    networks:
+      - webnet
+
+  job-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: job-frontend
+    restart: always
+    expose:
+      - "8501"
+    depends_on:
+      - job-backend
+    networks:
+      - webnet
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx
+    ports:
+      - "443:443"
+    depends_on:
+      - job-backend
+      - job-frontend
+    networks:
+      - webnet
+
+networks:
+  webnet:
