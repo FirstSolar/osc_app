@@ -14,13 +14,15 @@ The frontend will be available at `https://localhost` (NGINX terminates TLS), an
 
 ### Environment variables
 
-The backend requires SSH credentials to connect to the cluster. These values can be provided using environment variables:
+The backend requires SSH credentials to connect to the cluster. These values can
+be provided using environment variables:
 
 - `SSH_HOST` – remote host name
-- `SSH_USER` – SSH user
-- `SSH_PASS` – SSH password
-- `SQUEUE_COMMAND` – command used to fetch job information (default: `squeue -A PYS0302`)
-- `SHOW_JOB_COMMAND` – base command to fetch detailed job data (default: `scontrol show job`)
+- `SQUEUE_COMMAND` – command used to fetch job information (default:
+  `squeue -A PYS0302`)
+- `SHOW_JOB_COMMAND` – base command to fetch detailed job data (default:
+  `scontrol show job`)
+- `DB_PATH` – location of the SQLite database used for storing registered users
 
 You can set them in a `.env` file or directly in the environment before running Docker Compose. An example configuration is provided in `.env.example`.
 
@@ -28,6 +30,8 @@ You can set them in a `.env` file or directly in the environment before running 
 
 The backend exposes the following routes:
 
+- `/register` – create a new user record with HPC credentials.
+- `/login` – obtain an authentication token.
 - `/jobs` – returns a list of jobs for the configured account.
 - `/job/<JOBID>` – returns detailed information for a specific job using `scontrol show job`.
 
