@@ -1,6 +1,6 @@
 # OSC Job Monitoring App
 
-This project provides a small containerized setup with a Flask backend and a Streamlit frontend served through NGINX. The backend connects to a remote cluster via SSH to fetch job queue data, while the frontend displays that information in a dashboard.
+This project provides a small containerized setup with a Flask backend and a React frontend built with Vite and Material-UI served through NGINX. The backend connects to a remote cluster via SSH to fetch job queue data, while the frontend displays that information in a dashboard.
 
 ## Running locally
 
