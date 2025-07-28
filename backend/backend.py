@@ -1,14 +1,15 @@
 from flask import Flask, jsonify
+import os
 import paramiko
 import threading
 import time
 
 app = Flask(__name__)
 
-SSH_HOST = 'cardinal.osc.edu'
-SSH_USER = 'vikrambathala4'
-SSH_PASS = 'Homeboxoffice@3'
-SQUEUE_COMMAND = 'squeue -A pys0302'
+SSH_HOST = os.getenv("SSH_HOST", "cardinal.osc.edu")
+SSH_USER = os.getenv("SSH_USER", "")
+SSH_PASS = os.getenv("SSH_PASS", "")
+SQUEUE_COMMAND = os.getenv("SQUEUE_COMMAND", "squeue -A pys0302")
 
 job_data = []
 
