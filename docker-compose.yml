@@ -16,8 +16,8 @@ services:
 
   job-frontend:
     build:
-      context: ./frontend
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: frontend/Dockerfile
     container_name: job-frontend
     restart: always
     expose:
