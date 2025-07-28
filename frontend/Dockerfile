@@ -9,7 +9,4 @@ RUN pip install streamlit pandas requests streamlit-autorefresh
 EXPOSE 8501
 
 ENTRYPOINT ["streamlit", "run", "frontend.py"]
-CMD ["--server.port=8501", 
-     "--server.address=0.0.0.0", 
-     "--server.enableCORS=false", 
-     "--server.enableXsrfProtection=false"]
+CMD ["--server.port=8501", "--server.address=0.0.0.0", "--server.enableCORS=false", "--server.enableXsrfProtection=false"]
