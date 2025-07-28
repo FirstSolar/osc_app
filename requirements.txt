@@ -1,0 +1,6 @@
+flask
+flask-cors
+paramiko
+streamlit
+requests
+streamlit-autorefresh
