@@ -19,9 +19,17 @@ The backend requires SSH credentials to connect to the cluster. These values can
 - `SSH_HOST` – remote host name
 - `SSH_USER` – SSH user
 - `SSH_PASS` – SSH password
-- `SQUEUE_COMMAND` – command used to fetch job information (default: `squeue -A pys0302`)
+- `SQUEUE_COMMAND` – command used to fetch job information (default: `squeue -A PYS0302`)
+- `SHOW_JOB_COMMAND` – base command to fetch detailed job data (default: `scontrol show job`)
 
 You can set them in a `.env` file or directly in the environment before running Docker Compose. An example configuration is provided in `.env.example`.
+
+### API Endpoints
+
+The backend exposes the following routes:
+
+- `/jobs` – returns a list of jobs for the configured account.
+- `/job/<JOBID>` – returns detailed information for a specific job using `scontrol show job`.
 
 ## Development
 
